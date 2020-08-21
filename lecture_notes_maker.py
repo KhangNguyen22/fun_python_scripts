@@ -7,7 +7,7 @@ def remove_control_characters(s):
     return "".join(ch for ch in s if ch =='\n' or ch =='\t' or unicodedata.category(ch)[0]!="C")
 
 def set_col_widths(table):
-    widths = (Inches(1), Inches(20))
+    widths = (Inches(0.5), Inches(20))
     for row in table.rows:
         for idx, width in enumerate(widths):
             row.cells[idx].width = width
@@ -45,7 +45,7 @@ headers_counter = 0
 content_counter = 0
 for idx, item in enumerate(array):
     try:
-        r = left_column.add_paragraph().add_run(item[1]+"\n"*item[2].count('\n'))
+        r = left_column.add_paragraph().add_run(item[1]+"\n\n\n")
         r.bold = True
         headers_counter += 1
         content_column.add_paragraph(remove_control_characters(item[2]))
