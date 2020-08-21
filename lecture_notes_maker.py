@@ -26,10 +26,12 @@ table.rows[0].cells[0].paragraphs[0].runs[0].font.bold = True
 
 file = open('/Users/khang248123/Desktop/l.txt',mode='r')
 text = file.read() 
-mo = re.compile(r'Page (\d|\d\d)\n\n\s([\w \t…,:\-\’\(\)]+)')
+mo = re.compile(r'Page (\d|\d\d)\n\n\s([\w\W]+?)\n([\w\W]+?)(?=The University of Sydney)')
 array = mo.findall(text)
-for i in array:
+for idx,i in enumerate(array):
+    print(idx)
     print(i)
+
 # print(repr(text))
 # bold the left column
 # table.rows[1].cells[0].paragraphs[0].runs[0].font.bold = True
