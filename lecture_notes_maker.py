@@ -1,5 +1,6 @@
 from docx import Document
 from docx.shared import Inches, Pt
+import re
 
 def set_col_widths(table):
     widths = (Inches(1), Inches(20))
@@ -23,10 +24,15 @@ hdr_cells.text = 'L1: Consolidation and the concept of control'
 table.rows[0].cells[0].paragraphs[0].runs[0].font.bold = True
 
 
-
-
+file = open('/Users/khang248123/Desktop/l.txt',mode='r')
+text = file.read() 
+mo = re.compile(r'Page (\d|\d\d)\n\n\s([\w \t…,:\-\’\(\)]+)')
+array = mo.findall(text)
+for i in array:
+    print(i)
+# print(repr(text))
 # bold the left column
-table.rows[1].cells[0].paragraphs[0].runs[0].font.bold = True
+# table.rows[1].cells[0].paragraphs[0].runs[0].font.bold = True
 
-if document.save('demo.docx'):
-    print("saved")
+# if document.save('demo.docx'):
+#     print("saved")
