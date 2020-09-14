@@ -55,5 +55,5 @@ for idx, item in enumerate(array):
 print('headers: ' + str(headers_counter))
 print('contents: ' + str(content_counter))
 
-if not document.save('demo.docx'):
-    print("saved")
+if not document.save('output_notes.docx'):
+    print("saved as output_notes.docx")
